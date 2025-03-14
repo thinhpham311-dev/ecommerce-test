@@ -1,0 +1,95 @@
+@import "../../styles/global.scss";
+
+
+// Color classes
+.primary {
+    background-color: $primary-color;
+
+    &:hover {
+        background-color: $primary-hover-color;
+    }
+
+    color: $white;
+}
+
+.secondary {
+    background-color: $secondary-color;
+
+    &:hover {
+        background-color: $secondary-hover-color;
+    }
+
+    color: $white;
+}
+
+.success {
+    background-color: $success-color;
+
+    &:hover {
+        background-color: $success-hover-color;
+    }
+
+    color: $white;
+}
+
+.danger {
+    background-color: $danger-color;
+
+    &:hover {
+        background-color: $danger-hover-color;
+    }
+
+    color: $white;
+}
+
+.warning {
+    background-color: $warning-color;
+
+    &:hover {
+        background-color: $warning-hover-color;
+    }
+
+    color: $black;
+}
+
+.info {
+    background-color: $info-color;
+
+    &:hover {
+        background-color: $info-hover-color;
+    }
+
+    color: $white;
+}
+
+// Size classes
+.small {
+    padding: 0.5rem 1rem; // px-2 py-1
+    font-size: 0.875rem; // text-sm
+}
+
+.medium {
+    padding: 1rem 2rem; // px-4 py-2
+    font-size: 1rem; // text-base
+}
+
+.large {
+    padding: 1.5rem 3rem; // px-6 py-3
+    font-size: 1.125rem; // text-lg
+}
+
+// Base button styles
+.button {
+    font-weight: bold; // font-bold
+    outline: none; // focus:outline-none
+    border: none;
+
+    &:focus {
+        box-shadow: $focus-shadow; // focus:shadow-outline
+    }
+
+    &.disabled {
+        opacity: $disabled-opacity; // opacity-50
+        cursor: not-allowed; // cursor-not-allowed
+    }
+}

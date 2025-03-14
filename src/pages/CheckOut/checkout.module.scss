@@ -1,0 +1,36 @@
+@import "../../styles/global.scss";
+
+.mainWrapper {
+    padding: 20px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkoutContext {
+    margin: 50px 0;
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 1fr 2fr;
+
+    @media (max-width: $media-lg) {
+        grid-template-columns: auto;
+    }
+
+    h3 {
+        text-align: end;
+    }
+}
+
+
+
+.actionBarContext {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.actionBarWrapper {
+    margin-bottom: 10px;
+}

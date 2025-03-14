@@ -1,0 +1,22 @@
+[
+    {
+        "order_id": "nNDLi",
+        "customer_name": "Nguyễn Văn A",
+        "customer_email": "nguyenvana@example.com",
+        "customer_address": "Long Xuyên An Giang",
+        "order_date": "2025-03-12",
+        "total_price": 1199.99,
+        "order_status": "pending",
+        "products": [
+            {
+                "product_id": 12,
+                "product_code": "SX1V",
+                "product_name": "Sony Xperia 1 V",
+                "year_of_production": 2024,
+                "product_price": 1199.99,
+                "product_image": "/products/sony-xperia-1-v-1-600x600.jpg",
+                "product_description": "Cinematic 4K HDR OLED display, pro-level camera, and excellent audio quality."
+            }
+        ]
+    }
+]

@@ -1,0 +1,37 @@
+@import "../../styles/global.scss";
+
+.formWrapper {
+    padding: 50px;
+    border: 1px solid $black;
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    margin: auto;
+
+    h3 {
+        text-align: center;
+    }
+
+    @media (max-width: $media-md) {
+        padding: 20px;
+    }
+}
+
+
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+
+.msgError {
+    color: $danger-color
+}
+
+.handleSubmitBtnWrapper {
+    margin: 10px 0;
+
+    button {
+        width: 100%;
+    }
+}

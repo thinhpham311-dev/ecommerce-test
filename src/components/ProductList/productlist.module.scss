@@ -1,0 +1,46 @@
+@import "../../styles/global.scss";
+
+.productListWrapper {
+  :global {
+    .loadBtn {
+      background-color: $primary-color;
+      border: none;
+      color: $white;
+      padding: 10px 25px;
+    }
+  }
+}
+
+.productsGridItem {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+
+  @media (max-width: $media-lg) {
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+}
+
+.productsLisItem {
+  display: block;
+}
+
+@media (max-width: $media-md) {
+  .productList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: $media-lg) {
+  .productList {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}

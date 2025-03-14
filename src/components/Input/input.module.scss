@@ -1,0 +1,57 @@
+@import "../../styles/global.scss";
+
+
+// Color classes
+.primary {
+    background-color: $white;
+    color: $black;
+}
+
+.danger {
+    background-color: $danger-color;
+    color: $white;
+}
+
+.warning {
+    background-color: $warning-color;
+
+    &:hover {
+        background-color: $warning-hover-color;
+    }
+
+    color: $black;
+}
+
+
+
+// Base input styles
+.input {
+    padding: 0.5rem 1rem; // px-2 py-1
+    font-size: 0.875rem; // text-sm
+    border-radius: 0; // rounded
+    border: 1px solid $black;
+    outline: none; // focus:outline-none
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+
+    &:focus {
+        border-color: darken($black, 10%);
+        box-shadow: 0 0 0 3px rgba($black, 0.5);
+    }
+
+    &.disabled {
+        opacity: 0.5; // opacity-50
+        cursor: not-allowed; // cursor-not-allowed
+    }
+}
+
+.numericInput {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    max-width: auto;
+    text-align: center;
+    justify-content: space-between;
+    border: 1px solid $black;
+    font-size: $font-size-xs;
+}

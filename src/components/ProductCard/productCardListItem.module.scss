@@ -1,0 +1,79 @@
+@import "../../styles/global.scss";
+
+.productCardImg {
+
+  padding: 5px;
+  min-height: 200px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    cursor: pointer;
+    max-height: 150px;
+    max-width: 150px;
+    margin: 0 auto;
+  }
+}
+
+.productCardListItem {
+  transition: all 0.5s ease-out;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $black;
+  padding: 10px;
+  gap: 50px;
+  margin-bottom: 10px;
+  height: auto;
+  min-height: 150px;
+
+  @media (max-width: $media-md) {
+    gap: 0;
+    padding: 0;
+  }
+
+}
+
+.productCardBody {
+  flex: 1;
+  padding: 5px;
+}
+
+.productCardFooter {
+  padding: 5px;
+  border-top: 0;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $media-md) {
+    width: 100%;
+  }
+}
+
+.btnAddToCard {
+  background-color: $primary-color !important;
+  border: none !important;
+  color: $white !important;
+  font-size: 1rem;
+  margin: 2px 0;
+
+  &:hover {
+    background-color: $primary-hover-color !important;
+  }
+}
+
+.btnBuyNow {
+  background-color: $danger-color !important;
+  border: none !important;
+  color: $white !important;
+  font-size: 1rem;
+  margin: 2px 0;
+
+  &:hover {
+    background-color: $secondary-hover-color !important;
+  }
+}

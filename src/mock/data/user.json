@@ -1,0 +1,14 @@
+[
+    {
+        "id": "21",
+        "avatar": "/avatars/thumb-13.jpg",
+        "userName": "thinhpham",
+        "email": "thinhpham67ag@gmail.com",
+        "authority": [
+            "admin",
+            "user"
+        ],
+        "password": "123456@Qwe",
+        "accountEmail": "thinhpham67ag@gmail.com"
+    }
+]

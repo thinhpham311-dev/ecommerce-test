@@ -1,0 +1,110 @@
+[
+    {
+        "product_id": 1,
+        "product_code": "SGS24U",
+        "product_name": "Samsung Galaxy S24 Ultra",
+        "year_of_production": 2024,
+        "product_price": 20000000,
+        "product_image": "/products/samsung-galaxy-s24-ultra-xam-4-750x500.jpg",
+        "product_description": "Experience the power of the latest Snapdragon processor, a 200MP camera, and an S Pen for ultimate productivity."
+    },
+    {
+        "product_id": 2,
+        "product_code": "IP15PM",
+        "product_name": "iPhone 15 Pro Max",
+        "year_of_production": 2024,
+        "product_price": 26000000,
+        "product_image": "/products/iphone-15-pro-max-blue-1-750x500.jpg",
+        "product_description": "Titanium body, A17 Pro chip, 48MP camera with periscope zoom, and USB-C for faster data transfer."
+    },
+    {
+        "product_id": 3,
+        "product_code": "GP8P",
+        "product_name": "Google Pixel 8 Pro",
+        "year_of_production": 2024,
+        "product_price": 18000000,
+        "product_image": "/products/google-pixel-8-pro-600x600.jpg",
+        "product_description": "Best-in-class AI features, improved Tensor G3 chip, and a stunning 6.7-inch OLED display."
+    },
+    {
+        "product_id": 4,
+        "product_code": "OP12",
+        "product_name": "OnePlus 12",
+        "year_of_production": 2024,
+        "product_price": 12000000,
+        "product_image": "/products/oneplus-12-thumb-600x600.jpg",
+        "product_description": "120Hz AMOLED display, Snapdragon 8 Gen 3, 100W fast charging, and OxygenOS experience."
+    },
+    {
+        "product_id": 5,
+        "product_code": "X14U",
+        "product_name": "Xiaomi 14 Ultra",
+        "year_of_production": 2024,
+        "product_price": 20000000,
+        "product_image": "/products/xiaomi-14-ultra-4-750x500.jpg",
+        "product_description": "Leica-powered 1-inch sensor, 5000mAh battery, and cutting-edge AI processing."
+    },
+    {
+        "product_id": 6,
+        "product_code": "SGZF5",
+        "product_name": "Samsung Galaxy Z Fold 5",
+        "year_of_production": 2024,
+        "product_price": 47000000,
+        "product_image": "/products/samsung-galaxy-zfold5-kem-256gb-1-1-750x500.jpg",
+        "product_description": "Revolutionary foldable display, multitasking features, and a premium build."
+    },
+    {
+        "product_id": 7,
+        "product_code": "IP15",
+        "product_name": "iPhone 15",
+        "year_of_production": 2024,
+        "product_price": 22000000,
+        "product_image": "/products/iphone-15-green-2-638629454743930665-750x500.jpg",
+        "product_description": "The best everyday iPhone with a powerful A16 Bionic chip and a beautiful Super Retina XDR display."
+    },
+    {
+        "product_id": 8,
+        "product_code": "IP15",
+        "product_name": "iPhone 16",
+        "year_of_production": 2024,
+        "product_price": 23000000,
+        "product_image": "/products/iphone-16-teal-1-638639086454453461-750x500.jpg",
+        "product_description": "The best everyday iPhone with a powerful A16 Bionic chip and a beautiful Super Retina XDR display."
+    },
+    {
+        "product_id": 9,
+        "product_code": "IP15",
+        "product_name": "iPhone 16 Pro Max",
+        "year_of_production": 2024,
+        "product_price": 27000000,
+        "product_image": "/products/iphone-16-pro-max-titan-sa-mac-1-638638962113364601-750x500.jpg",
+        "product_description": "The best everyday iPhone with a powerful A16 Bionic chip and a beautiful Super Retina XDR display."
+    },
+    {
+        "product_id": 10,
+        "product_code": "ARP8",
+        "product_name": "Asus ROG Phone 8",
+        "year_of_production": 2024,
+        "product_price": 11000000,
+        "product_image": "/products/asus-rog-phone-8.webp",
+        "product_description": "Built for gamers with a 165Hz AMOLED display, advanced cooling, and gaming triggers."
+    },
+    {
+        "product_id": 11,
+        "product_code": "NP2",
+        "product_name": "Nothing Phone (2)",
+        "year_of_production": 2024,
+        "product_price": 12000000,
+        "product_image": "/products/dien-thoai-nothing-phone-2a_1_1.webp",
+        "product_description": "Unique transparent design, Glyph interface, and a clean Android experience."
+    },
+    {
+        "product_id": 12,
+        "product_code": "SX1V",
+        "product_name": "Sony Xperia 1 V",
+        "year_of_production": 2024,
+        "product_price": 7000000,
+        "product_image": "/products/sony-xperia-1-v-1-600x600.jpg",
+        "product_description": "Cinematic 4K HDR OLED display, pro-level camera, and excellent audio quality."
+    }
+]
