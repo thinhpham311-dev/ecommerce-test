@@ -17,7 +17,9 @@ const Numberic = ({ value, onChange, min = 1, max = 100, disabled = false }) => 
 
     return (
         <div className={styles.numericInput}>
-            <Button size="small"
+            <Button
+                color="info"
+                size="small"
                 onClick={handleDecrement}
                 disabled={value <= min || disabled}
             >
@@ -27,6 +29,7 @@ const Numberic = ({ value, onChange, min = 1, max = 100, disabled = false }) => 
                 {value}
             </div>
             <Button
+                color="info"
                 size="small"
                 onClick={handleIncrement}
                 disabled={value >= max || disabled}

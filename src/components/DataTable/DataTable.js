@@ -1,6 +1,12 @@
 import React from 'react';
+import EmptyCart from '../EmptyCart/EmptyCart';
 
 const DataTable = ({ data, columns, className }) => {
+
+    if (data?.length === 0) {
+        return <EmptyCart />;
+    }
+
     return (
         <table className={className}>
             <thead>

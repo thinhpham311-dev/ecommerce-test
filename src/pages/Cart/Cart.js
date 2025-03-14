@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "./cart.module.scss";
 import { removeAll, removeFromCart, incrementProduct, reduceProduct } from "../../redux/features/Cart/stateSlice";
-import EmptyCart from "../../components/EmptyCart/EmptyCart";
 import { toast } from "react-toastify";
 import Button from "../../components/Button/Button";
 import Numberic from "../../components/Input/Numberic"
@@ -25,10 +24,6 @@ const Cart = () => {
       autoClose: 1000,
     });
   };
-
-  if (cart?.length === 0) {
-    return <EmptyCart />;
-  }
 
   const columns = [
     {

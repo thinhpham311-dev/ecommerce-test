@@ -1,0 +1,62 @@
+@import "../../styles/global.scss";
+
+.cartDrawerWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.productsLisItem {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    flex: 1;
+    height: 100%;
+}
+
+.cartDrawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid $black;
+}
+
+.cartDrawerFooter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cartIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 20px;
+    padding: 0;
+    z-index: 50;
+    color: $white;
+    cursor: pointer;
+
+    .cartLength {
+        background-color: $white;
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: $black;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        z-index: 100;
+    }
+
+    @media (max-width: 1024px) {
+        margin-left: 0;
+    }
+}

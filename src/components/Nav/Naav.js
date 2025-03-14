@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./naav.module.scss";
 import UserDropdown from "./UserDropdown";
+import CartDrawer from "./CartDrawer"
 import Button from "../Button/Button";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useAuth } from "../../utils/hooks";
 import { toast } from "react-toastify";
 
 const Naav = () => {
   const [open, setOpen] = useState(false);
   const { authenticated, signOut } = useAuth();
-  const { cart } = useSelector((state) => state.cart.state);
 
   const menus = [
     { name: "Trang chủ", id: 1, path: "/" },
@@ -84,21 +82,9 @@ const Naav = () => {
                   </Button>
                 </div>
               )}
-
             </nav>
           </div>
-          <Link
-            to="/cart"
-            className={`${styles.navLink} ${styles.cartIcon}`}
-            onClick={() => setOpen(false)}
-          >
-            <div className={styles.cartIcon}>
-              <AiOutlineShoppingCart size={23} />
-              <div className={styles.cartLength}>
-                <span>{cart?.length}</span>
-              </div>
-            </div>
-          </Link>
+          <CartDrawer />
         </div>
       </div>
     </div>
