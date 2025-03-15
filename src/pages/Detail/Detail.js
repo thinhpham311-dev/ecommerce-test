@@ -53,10 +53,10 @@ const Detail = () => {
                         <h3>{product?.product_name}</h3>
                         <p>  <span>Price: ${product?.product_price}</span></p>
                         <div>
-                            <Button size="small" onClick={productHandler}>
+                            <Button type="button" size="small" onClick={productHandler}>
                                 Thêm Vào giỏ
                             </Button>
-                            <Button size="small" color="danger" onClick={() => {
+                            <Button type="button" size="small" color="danger" onClick={() => {
                                 productHandler()
                                 navigate('/checkout')
                             }}>

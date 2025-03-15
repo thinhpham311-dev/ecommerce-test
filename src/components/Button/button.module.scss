@@ -62,34 +62,34 @@
     color: $white;
 }
 
-// Size classes
+
 .small {
-    padding: 0.5rem 1rem; // px-2 py-1
-    font-size: 0.875rem; // text-sm
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
 }
 
 .medium {
-    padding: 1rem 2rem; // px-4 py-2
-    font-size: 1rem; // text-base
+    padding: 1rem 2rem;
+    font-size: 1rem;
 }
 
 .large {
-    padding: 1.5rem 3rem; // px-6 py-3
-    font-size: 1.125rem; // text-lg
+    padding: 1.5rem 3rem;
+    font-size: 1.125rem;
 }
 
-// Base button styles
 .button {
-    font-weight: bold; // font-bold
-    outline: none; // focus:outline-none
+    font-weight: bold;
+    outline: none;
     border: none;
+    cursor: pointer;
 
     &:focus {
-        box-shadow: $focus-shadow; // focus:shadow-outline
+        box-shadow: $focus-shadow;
     }
 
     &.disabled {
-        opacity: $disabled-opacity; // opacity-50
-        cursor: not-allowed; // cursor-not-allowed
+        opacity: $disabled-opacity;
+        cursor: not-allowed;
     }
 }

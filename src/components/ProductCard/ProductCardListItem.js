@@ -55,7 +55,7 @@ const ProductCardListItem = ({ product }) => {
         <Button color="primary" size="small" type="button" className={styles.btnAddToCard} onClick={addProduct}>
           Thêm vào giỏ
         </Button>
-        <Button color="danger" size="small" className={styles.btnBuyNow} onClick={buyNowProduct}>
+        <Button color="danger" size="small" type="button" className={styles.btnBuyNow} onClick={buyNowProduct}>
           Mua ngay
         </Button>
       </div>

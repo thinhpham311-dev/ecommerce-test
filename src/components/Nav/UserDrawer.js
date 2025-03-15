@@ -40,8 +40,8 @@ function UserDrawer() {
                     <img src={avatar ?? userNotFound} className={styles.avatarImageInfo} alt={email} />
                 </div>
                 <div className={styles.avatarWrapperTextInfo}>
-                    <p>  {fullName}</p>
-                    <p> <span>{email}</span></p>
+                    <p className="clamp-line-1 "> <strong> {fullName}</strong></p>
+                    <p className="clamp-line-1 "> <span>{email}</span></p>
                 </div>
                 <Button color='danger' size='small' onClick={handleSignOut}>Đăng xuất</Button>
             </Drawer>
