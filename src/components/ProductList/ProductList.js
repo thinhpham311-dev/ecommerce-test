@@ -5,7 +5,7 @@ import { fetchProducts } from "../../redux/features/Product/dataSlice";
 import ProductCardListItem from "../ProductCard/ProductCardListItem";
 import ProductCardGridItem from "../ProductCard/ProductCardGridItem";
 import styles from "./productlist.module.scss";
-import Loader from "../Loader/Loader";
+import { Loader } from "../Loader/Loader";
 import ActionBar from "../ActionBar/ActionBar";
 
 const ProductList = () => {

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Slider from "react-slick";
-import Loader from "../Loader/Loader";
+import { Loader } from "../Loader/Loader";
 import ProductCardGridItem from "../ProductCard/ProductCardGridItem";
 
 import { STATUS } from "../../constants/Status";

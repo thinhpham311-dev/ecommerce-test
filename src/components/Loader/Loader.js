@@ -1,13 +1,21 @@
 import React from "react";
-import loader from "../../assests/loader.gif";
+import loaderFill from "../../assests/loader-fill.svg";
+import loaderIcon from "../../assests/loader-icon.svg";
+
 import styles from "./loader.module.scss"
 
 const Loader = () => {
   return (
     <div className={styles.loaderWrapper}>
-      <img src={loader} alt="loading" />
+      <img src={loaderFill} alt="loading" />
     </div>
   );
 };
 
-export default Loader;
+const LoaderIcon = () => {
+  return (
+    <img className={styles.loaderIcon} src={loaderIcon} alt="loading" />
+  );
+};
+
+export { Loader, LoaderIcon };

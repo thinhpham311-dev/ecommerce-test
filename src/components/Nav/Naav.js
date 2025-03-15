@@ -4,11 +4,9 @@ import styles from "./naav.module.scss";
 import UserDrawer from "./UserDrawer";
 import CartDrawer from "./CartDrawer"
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useAuth } from "../../utils/hooks";
 
 const Naav = () => {
   const [open, setOpen] = useState(false);
-  const { authenticated } = useAuth();
 
   const menus = [
     { name: "Trang chủ", id: 1, path: "/" },
@@ -40,25 +38,13 @@ const Naav = () => {
                   {menu.name}
                 </Link>
               ))}
-
-
-
-              {!authenticated && (
-                <Link
-                  to="/login"
-                  className={`${styles.navLink} ${styles.menuLink}`}
-                  onClick={() => setOpen(false)}
-                >
-                  Đăng nhập
-                </Link>
-              )}
             </nav>
           </div>
           <div className={styles.navBarActions}>
             <CartDrawer />
-            {authenticated && (
-              <UserDrawer />
-            )}
+
+            <UserDrawer />
+
           </div>
         </div>
       </div>

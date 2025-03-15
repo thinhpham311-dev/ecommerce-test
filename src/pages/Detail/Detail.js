@@ -6,7 +6,7 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { fetchProduct } from "../../redux/features/Product/dataSlice"
-import Loader from "../../components/Loader/Loader";
+import { Loader } from "../../components/Loader/Loader";
 import styles from "./detail.module.scss";
 import { STATUS } from "../../constants/Status";
 import Button from "../../components/Button/Button";

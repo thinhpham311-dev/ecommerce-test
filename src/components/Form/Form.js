@@ -4,7 +4,7 @@ import { useForm } from "../../utils/hooks";
 import FormControl from "./FormControl";
 import FormLabel from "./FormLabel";
 import Button from "../Button/Button";
-import Loader from "../Loader/Loader";
+import { Loader } from "../Loader/Loader";
 
 const Form = ({
     initialValues,
