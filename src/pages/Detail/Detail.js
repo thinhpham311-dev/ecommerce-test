@@ -39,9 +39,9 @@ const Detail = () => {
     };
 
     return (
-        <div className={styles.detailWrapper}>
+        <div className={styles.mainWrapper}>
             <div className="container">
-                <div className={styles.mainDetailWrapper}>
+                <div className={styles.detailWrapper}>
                     <div className={styles.imageWrapper}>
                         <img
                             src={product?.product_image}
@@ -49,18 +49,20 @@ const Detail = () => {
                             style={{ maxWidth: "300px", maxHeight: "300px" }}
                         />
                     </div>
-                    <div>
+                    <div className={styles.contentWrapper}>
                         <h3>{product?.product_name}</h3>
                         <p>  <span>Price: ${product?.product_price}</span></p>
-                        <Button size="small" onClick={productHandler}>
-                            Thêm Vào giỏ
-                        </Button>
-                        <Button size="small" color="danger" onClick={() => {
-                            productHandler()
-                            navigate('/checkout')
-                        }}>
-                            Thêm Vào giỏ
-                        </Button>
+                        <div>
+                            <Button size="small" onClick={productHandler}>
+                                Thêm Vào giỏ
+                            </Button>
+                            <Button size="small" color="danger" onClick={() => {
+                                productHandler()
+                                navigate('/checkout')
+                            }}>
+                                Thêm Vào giỏ
+                            </Button>
+                        </div>
                     </div>
                 </div>
                 <p>{product?.product_description}</p>

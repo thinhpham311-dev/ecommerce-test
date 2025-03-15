@@ -7,7 +7,6 @@ import styles from "./checkout.module.scss"
 import { toast } from "react-toastify";
 import Form from "../../components/Form/Form";
 import DataTable from "../../components/DataTable/DataTable";
-import Loader from "../../components/Loader/Loader";
 import formatToVND from '../../utils/formatCurrentVn';
 
 const formValidator = (values) => {
@@ -24,7 +23,7 @@ const formValidator = (values) => {
     if (!values || !values.phone) {
         errors.push({ phone: "Số điện thoại không được để trống" });
     } else {
-        const phoneRegex = /^\d{8}$/;
+        const phoneRegex = /^\d{10}$/;
         if (!phoneRegex.test(values.phone)) {
             errors.push({ phone: "Số điện thoại phải có 10 chữ số và chỉ chứa số" });
         }
@@ -44,12 +43,13 @@ const Checkout = () => {
     async function handleValidationSuccessOnSubmit(values) {
         const result = await handleCheckOut(values);
         if (result.status === 'failed') {
-            toast.error(<span> { result.message}</span>, {
+            toast.error(<span> {result.message}</span>, {
                 autoClose: 1000,
-            });        }
+            });
+        }
 
         if (result.status === 'success') {
-            toast.success(<span>{ result.message}</span>, {
+            toast.success(<span>{result.message}</span>, {
                 autoClose: 1000,
             });
         }
@@ -106,26 +106,21 @@ const Checkout = () => {
     ];
 
 
-    if (loading) {
-        return <Loader />;
-    }
-
-
     return (
         <div className={styles.mainWrapper}>
             <div className="container">
                 <div className={styles.checkoutContext}>
                     <div>
                         <Form
-                            initialValues={{ fullName: "", phone: "", address: "" }}
+                            initialValues={{ fullName: "Phạm Trí Thịnh", phone: "0702895474", address: "Long Xuyên, An Giang" }}
                             onSubmit={handleValidationSuccessOnSubmit}
                             validator={formValidator}
                             fields={fields}
                             submitButtonText="Xác nhận"
                             loadingText="Đang thanh toán..."
                             title="Thanh Toán"
-                            isSubmitting={loading }
-                            isDisabled= {!cart.length > 0}
+                            isSubmitting={loading}
+                            isDisabled={!cart.length > 0}
                         />
                     </div>
                     <div>

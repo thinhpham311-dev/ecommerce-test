@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser, initialState } from '../../redux/features/Auth/userSlice'
-import { apiSignIn, apiSignOut, apiSignUp } from '../../services/AuthService'
+import { apiSignIn, apiSignOut } from '../../services/AuthService'
 import { onSignInSuccess, onSignOutSuccess } from '../../redux/features/Auth/sessionSlice'
 import appConfig from '../../configs/app.config'
 import { REDIRECT_URL_KEY } from '../../constants/App'
@@ -26,6 +26,7 @@ function useAuth() {
                     dispatch(setUser(resp.data.user || {
                         avatar: '',
                         userName: '',
+                        fullName: '',
                         authority: ['USER'],
                         email: ''
                     }))

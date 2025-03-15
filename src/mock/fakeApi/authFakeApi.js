@@ -8,9 +8,8 @@ export default function authFakeApi(server, apiPrefix) {
         const { email, password } = JSON.parse(requestBody)
         const user = schema.db.usersData.findBy({ accountEmail: email, password })
         if (user) {
-            const { avatar, email, authority } = user
             return {
-                user: { avatar, email, authority },
+                user,
                 token: 'wVYrxaeNa9OxdnULvde1Au5m5w63'
             }
         }

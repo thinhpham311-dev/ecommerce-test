@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .navBarBrand {
@@ -83,6 +84,9 @@
   color: $white;
   font-weight: 600;
   transition: color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   &:hover {
     color: $primary-color;

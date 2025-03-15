@@ -11,7 +11,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import 'react-modern-drawer/dist/index.css'
+import 'react-modern-drawer/dist/index.css';
 
 import { ToastContainer } from "react-toastify";
 import mockServer from './mock'

@@ -3,7 +3,6 @@ import { useAuth } from "../../utils/hooks";
 import Form from "../../components/Form/Form"; // Import component Form chung
 import styles from "./login.module.scss";
 import { toast } from "react-toastify";
-import Loader from "../../components/Loader/Loader";
 
 const formValidator = (values) => {
     const errors = [];
@@ -35,13 +34,13 @@ const Login = () => {
     const handleValidationSuccessOnSubmit = async (values) => {
         const result = await signIn(values);
         if (result.status === 'failed') {
-            toast.error(<span> {result.message }</span>, {
+            toast.error(<span> {result.message}</span>, {
                 autoClose: 1000,
             });
         }
 
         if (result.status === 'success') {
-            toast.success(<span>{ result.message}</span>, {
+            toast.success(<span>{result.message}</span>, {
                 autoClose: 1000,
             });
         }
@@ -65,15 +64,12 @@ const Login = () => {
         },
     ];
 
-    if (loading) {
-        return <Loader />; 
-    }
 
     return (
         <div className={styles.mainWrapper}>
             <div className="container">
                 <Form
-                    initialValues={{ email: "", password: "" }}
+                    initialValues={{ email: "thinhpham67ag@gmail.com", password: "123456@Qwe" }}
                     onSubmit={handleValidationSuccessOnSubmit}
                     validator={formValidator}
                     fields={fields}
