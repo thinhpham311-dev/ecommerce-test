@@ -78,15 +78,19 @@
   }
 }
 
+.navBarActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .navLink {
   font-size: $font-size-medium;
   text-decoration: none;
   color: $white;
   font-weight: 600;
   transition: color 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+
 
   &:hover {
     color: $primary-color;

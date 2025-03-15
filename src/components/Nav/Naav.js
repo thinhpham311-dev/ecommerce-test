@@ -54,7 +54,7 @@ const Naav = () => {
               )}
             </nav>
           </div>
-          <div className={styles.navLink}>
+          <div className={styles.navBarActions}>
             <CartDrawer />
             {authenticated && (
               <UserDrawer />
