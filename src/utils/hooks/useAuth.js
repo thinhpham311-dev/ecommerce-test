@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser, initialState } from '../../redux/features/Auth/userSlice'
 import { apiSignIn, apiSignOut, apiSignUp } from '../../services/AuthService'
@@ -8,16 +9,14 @@ import { useNavigate } from 'react-router-dom'
 import useQuery from './useQuery'
 
 function useAuth() {
-
     const dispatch = useDispatch()
-
     const navigate = useNavigate()
-
     const query = useQuery()
-
     const { token, signedIn } = useSelector((state) => state.auth.session)
+    const [loading, setLoading] = useState(false)
 
     const signIn = async (values) => {
+        setLoading(true)
         try {
             const resp = await apiSignIn(values)
             if (resp.data) {
@@ -35,7 +34,7 @@ function useAuth() {
                 navigate(redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath)
                 return {
                     status: 'success',
-                    message: ''
+                    message: 'Đăng nhập thành công'
                 }
             }
         } catch (errors) {
@@ -43,35 +42,8 @@ function useAuth() {
                 status: 'failed',
                 message: errors?.response?.data?.message || errors.toString()
             }
-        }
-    }
-
-    const signUp = async (values) => {
-        try {
-            const resp = await apiSignUp(values)
-            if (resp.data) {
-                const { token } = resp.data
-                dispatch(onSignInSuccess(token))
-                if (resp.data.user) {
-                    dispatch(setUser(resp.data.user || {
-                        avatar: '',
-                        userName: 'Anonymous',
-                        authority: ['USER'],
-                        email: ''
-                    }))
-                }
-                const redirectUrl = query.get(REDIRECT_URL_KEY)
-                navigate(redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath)
-                return {
-                    status: 'success',
-                    message: ''
-                }
-            }
-        } catch (errors) {
-            return {
-                status: 'failed',
-                message: errors?.response?.data?.message || errors.toString()
-            }
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -82,15 +54,20 @@ function useAuth() {
     }
 
     const signOut = async () => {
-        await apiSignOut()
-        handleSignOut()
+        setLoading(true)
+        try {
+            await apiSignOut()
+            handleSignOut()
+        } finally {
+            setLoading(false)
+        }
     }
 
     return {
         authenticated: token && signedIn,
         signIn,
-        signUp,
-        signOut
+        signOut,
+        loading
     }
 }
 

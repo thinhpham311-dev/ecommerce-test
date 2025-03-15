@@ -4,7 +4,7 @@ import user from './userSlice'
 
 const reducer = combineReducers({
     session,
-    user
+    user,
 })
 
 export default reducer

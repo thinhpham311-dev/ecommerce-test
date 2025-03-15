@@ -13,6 +13,7 @@ const Form = ({
     submitButtonText,
     loadingText,
     isSubmitting,
+    isDisabled = false,
     title,
 }) => {
     const { values, errors, setValue, handleSubmit } = useForm(
@@ -32,7 +33,8 @@ const Form = ({
                             type={field.type}
                             placeholder={field.placeholder}
                             name={field.name}
-                            value={values[field.name] || ""} // Đảm bảo giá trị mặc định
+                            value={values[field.name] || ""}
+                            isDisabled={isDisabled}
                             onChange={(event) => {
                                 setValue(field.name, event.target.value);
                             }}
@@ -41,7 +43,7 @@ const Form = ({
                     </div>
                 ))}
                 <div className={styles.handleSubmitBtnWrapper}>
-                    <Button disabled={isSubmitting} color="success" size="small" type="submit">
+                    <Button disabled={isSubmitting || isDisabled} color="success" size="small" type="submit">
                         {isSubmitting ? loadingText : submitButtonText}
                     </Button>
                 </div>

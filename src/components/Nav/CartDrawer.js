@@ -56,12 +56,14 @@ const CartDrawer = () => {
                         toggleDrawer()
                         navigate("/cart")
                     }}>  Xem chi tiết</Button>
+                    {cart.length > 0 &&
                     <Button color="success" size="small" onClick={() => {
                         toggleDrawer()
                         navigate("/checkout")
                     }}>
                         Thanh toán: {formatToVND(totalPrice)}
                     </Button>
+                }
                 </div>
             </Drawer>
         </div>

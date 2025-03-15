@@ -83,22 +83,21 @@ const Cart = () => {
           </div>
         </div>
         <DataTable data={cart} columns={columns} />
-        <hr />
       </div>
       <div className={styles.footerCart}>
         <div className="container">
           <div className={styles.footerCartContext}>
             <div>
-              <Button color="danger" size="small" className={styles.btnRemoveAll} onClick={removeAllProduct}>
+              <Button color="danger" disabled={!cart.length > 0} size="small" className={styles.btnRemoveAll} onClick={removeAllProduct}>
                 Xóa tất cả
               </Button>
             </div>
-
             <div>
               <h5>
                 Tổng: <b>{formatToVND(totalPrice)}</b>
               </h5>
-              <Button color="success" size="small" className={styles.btnCheckOut} onClick={() => navigate('/checkout')}>Thanh toán</Button>
+              {cart.length > 0 &&<Button color="success" size="small" className={styles.btnCheckOut} onClick={() => navigate('/checkout')}>Thanh toán</Button>
+              }
             </div>
           </div>
         </div>

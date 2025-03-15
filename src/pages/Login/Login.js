@@ -1,8 +1,9 @@
 import React from "react";
-import { useAuth, useTimeOutMessage } from "../../utils/hooks";
+import { useAuth } from "../../utils/hooks";
 import Form from "../../components/Form/Form"; // Import component Form chung
 import styles from "./login.module.scss";
 import { toast } from "react-toastify";
+import Loader from "../../components/Loader/Loader";
 
 const formValidator = (values) => {
     const errors = [];
@@ -29,17 +30,18 @@ const formValidator = (values) => {
 };
 
 const Login = () => {
-    const { signIn } = useAuth();
-    const [message, setMessage] = useTimeOutMessage();
+    const { signIn, loading } = useAuth();
 
     const handleValidationSuccessOnSubmit = async (values) => {
         const result = await signIn(values);
         if (result.status === 'failed') {
-            setMessage(result.message);
+            toast.error(<span> {result.message }</span>, {
+                autoClose: 1000,
+            });
         }
 
         if (result.status === 'success') {
-            toast.success(<span>Bạn đã đăng nhập thành công</span>, {
+            toast.success(<span>{ result.message}</span>, {
                 autoClose: 1000,
             });
         }
@@ -63,6 +65,10 @@ const Login = () => {
         },
     ];
 
+    if (loading) {
+        return <Loader />; 
+    }
+
     return (
         <div className={styles.mainWrapper}>
             <div className="container">
@@ -73,7 +79,7 @@ const Login = () => {
                     fields={fields}
                     submitButtonText="Đăng nhập"
                     loadingText="Đang đăng nhập..."
-                    message={message}
+                    isSubmitting={loading}
                     title="Đăng nhập" // Truyền tiêu đề vào đây
                 />
             </div>

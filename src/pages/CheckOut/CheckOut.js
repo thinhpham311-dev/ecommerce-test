@@ -1,16 +1,14 @@
 
 import { useMemo } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useCheckOut } from "../../utils/hooks"
 import { Link } from "react-router-dom";
 import styles from "./checkout.module.scss"
-import { putOrder } from "../../redux/features/Order/dataSlice"
-import { removeAll } from "../../redux/features/Cart/stateSlice"
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import DataTable from "../../components/DataTable/DataTable";
+import Loader from "../../components/Loader/Loader";
 import formatToVND from '../../utils/formatCurrentVn';
-
 
 const formValidator = (values) => {
     const errors = [];
@@ -26,7 +24,7 @@ const formValidator = (values) => {
     if (!values || !values.phone) {
         errors.push({ phone: "Số điện thoại không được để trống" });
     } else {
-        const phoneRegex = /^\d{10}$/;
+        const phoneRegex = /^\d{8}$/;
         if (!phoneRegex.test(values.phone)) {
             errors.push({ phone: "Số điện thoại phải có 10 chữ số và chỉ chứa số" });
         }
@@ -35,8 +33,7 @@ const formValidator = (values) => {
     return errors;
 };
 const Checkout = () => {
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const { handleCheckOut, loading } = useCheckOut();
 
     const { cart } = useSelector((state) => state.cart.state);
 
@@ -45,21 +42,17 @@ const Checkout = () => {
     }, [cart])
 
     async function handleValidationSuccessOnSubmit(values) {
-        const { fullName, phone, address } = values
+        const result = await handleCheckOut(values);
+        if (result.status === 'failed') {
+            toast.error(<span> { result.message}</span>, {
+                autoClose: 1000,
+            });        }
 
-        await dispatch(putOrder({
-            customer_name: fullName,
-            customer_phone: phone,
-            customer_address: address,
-            order_date: '28-03-2022',
-            total_price: totalPrice,
-            products: cart
-        }))
-        dispatch(removeAll());
-        toast.success(<span>Thanh Toán thành công</span>, {
-            autoClose: 1000,
-        });
-        navigate("/")
+        if (result.status === 'success') {
+            toast.success(<span>{ result.message}</span>, {
+                autoClose: 1000,
+            });
+        }
     };
 
     const fields = [
@@ -113,6 +106,11 @@ const Checkout = () => {
     ];
 
 
+    if (loading) {
+        return <Loader />;
+    }
+
+
     return (
         <div className={styles.mainWrapper}>
             <div className="container">
@@ -125,7 +123,9 @@ const Checkout = () => {
                             fields={fields}
                             submitButtonText="Xác nhận"
                             loadingText="Đang thanh toán..."
-                            title="Thanh Toán" // Truyền tiêu đề vào đây
+                            title="Thanh Toán"
+                            isSubmitting={loading }
+                            isDisabled= {!cart.length > 0}
                         />
                     </div>
                     <div>
