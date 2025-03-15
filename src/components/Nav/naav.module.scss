@@ -95,6 +95,11 @@
   &:hover {
     color: $primary-color;
   }
+
+  @media (max-width: $media-md) {
+    font-size: $font-size-base;
+
+  }
 }
 
 .menuLink {

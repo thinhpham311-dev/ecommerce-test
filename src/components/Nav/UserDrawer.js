@@ -9,9 +9,13 @@ import Button from '../Button/Button';
 import { LoaderIcon } from '../Loader/Loader';
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from "../../utils/hooks"
+import { IoIosLogIn } from "react-icons/io";
+
 
 function UserDrawer() {
     const navigate = useNavigate()
+    const isMobile = useMediaQuery("(max-width: 768px)");
     const { avatar, email, fullName } = useSelector((state) => state.auth.user)
     const [isOpen, setOpen] = React.useState(false)
     const { signOut, authenticated, loading } = useAuth();
@@ -35,12 +39,23 @@ function UserDrawer() {
     return (
         <>
             {!authenticated && (
-                <Button color='success' size='small'
-                    to="/login"
-                    onClick={() => navigate("/login")}
-                >
-                    Đăng nhập
-                </Button>
+                <>
+                    {isMobile &&
+                        <div
+                            className={styles.btnLoginIcon}
+                            onClick={() => navigate("/login")}
+                        >
+                            <IoIosLogIn size={25} />
+                        </div>
+                    }
+                    {!isMobile &&
+                        <Button color='success' size='small'
+                            onClick={() => navigate("/login")}
+                        >
+                            Đăng nhập
+                        </Button>
+                    }
+                </>
             )}
             {authenticated && <div>
                 <div className={styles.avatarWrapper} onClick={toggleDrawer}>

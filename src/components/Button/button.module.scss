@@ -83,6 +83,7 @@
     outline: none;
     border: none;
     cursor: pointer;
+    word-break: normal;
 
     &:focus {
         box-shadow: $focus-shadow;

@@ -42,9 +42,7 @@ const Naav = () => {
           </div>
           <div className={styles.navBarActions}>
             <CartDrawer />
-
             <UserDrawer />
-
           </div>
         </div>
       </div>
