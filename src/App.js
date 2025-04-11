@@ -1,13 +1,9 @@
 import "./App.scss";
+import { lazy, Suspense } from "react"
 import Naav from "./components/Nav/Naav";
-import Home from "./pages/Home/Home";
-import Products from "./pages/Product/Products";
-import Detail from "./pages/Detail/Detail";
-import Cart from "./pages/Cart/Cart";
-import CheckOut from "./pages/CheckOut/CheckOut"
-import Login from "./pages/Login/Login";
 import Footer from "./components/Footer/Footer";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import { Loader } from "./components/Loader/Loader";
 
 import { Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,6 +13,14 @@ import { ToastContainer } from "react-toastify";
 import mockServer from './mock'
 import { useAuth } from "./utils/hooks";
 import appConfig from "./configs/app.config"
+
+//pages
+const Login = lazy(() => import("./pages/Login/Login"));
+const Home = lazy(() => import("./pages/Home/Home"));
+const Products = lazy(() => import("./pages/Product/Products"));
+const Detail = lazy(() => import("./pages/Detail/Detail"));
+const Cart = lazy(() => import("./pages/Cart/Cart"))
+const CheckOut = lazy(() => import("./pages/CheckOut/CheckOut"))
 
 const environment = process.env.NODE_ENV
 
@@ -31,19 +35,20 @@ function App() {
   return (
     <div className="App">
       <Naav />
-      <div className="main">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/product/:id" element={<Detail />} />
-          {!authenticated && <Route path="/login" element={<Login />} />}
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<CheckOut />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </div>
+      <Suspense fallback={<Loader />}>
+        <div className="main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/product/:id" element={<Detail />} />
+            {!authenticated && <Route path="/login" element={<Login />} />}
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<CheckOut />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </div>
+      </Suspense>
       <Footer />
-      <ToastContainer position="top-right" />
       <ToastContainer />
     </div>
   );

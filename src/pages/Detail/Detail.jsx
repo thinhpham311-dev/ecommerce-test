@@ -17,19 +17,19 @@ const Detail = () => {
     const navigate = useNavigate()
     const { product, status } = useSelector((state) => state.product.data);
 
-
     useEffect(() => {
         dispatch(fetchProduct({ id }));
     }, [dispatch, id]);
 
     if (status === STATUS.LOADING) {
-        return <Loader />;
+        return <div className={styles.mainWrapper}>
+            <Loader />
+        </div>;
     }
 
     if (status !== STATUS.LOADING && status === STATUS.ERROR) {
-        return <h2>{status}</h2>;
+        return <div className={styles.mainWrapper}><h2>{status}</h2></div>;
     }
-
 
     const productHandler = () => {
         dispatch(addToCart(product));

@@ -96,7 +96,7 @@ const Cart = () => {
               <h5>
                 Tổng: <b>{formatToVND(totalPrice)}</b>
               </h5>
-              {cart.length > 0 &&<Button color="success" size="small" className={styles.btnCheckOut} onClick={() => navigate('/checkout')}>Thanh toán</Button>
+              {cart.length > 0 && <Button color="success" size="small" className={styles.btnCheckOut} onClick={() => navigate('/checkout')}>Thanh toán</Button>
               }
             </div>
           </div>
