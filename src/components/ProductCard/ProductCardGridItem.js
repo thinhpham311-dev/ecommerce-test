@@ -47,7 +47,7 @@ const ProductCardGridItem = ({ product }) => {
 
                 />
             </div>
-            <div className={styles.productCardBody}>
+            <div className={styles.productCardBody} aria-hidden="true">
                 <h5 className="clamp-line-1">{product?.product_name}</h5>
                 <span className="clamp-line-1">{formatToVND(product?.product_price)}</span>
             </div>

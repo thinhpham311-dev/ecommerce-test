@@ -38,7 +38,7 @@ const ProductCardListItem = ({ product }) => {
           alt={product?.product_name}
         />
       </div>
-      <div className={styles.productCardBody}>
+      <div className={styles.productCardBody} aria-hidden="true">
         <p className="clamp-line-1 "><strong>{product?.product_name}</strong></p>
         <span className="clamp-line-1 ">{formatToVND(product?.product_price)}</span>
         <Numberic value={product.quantity} onChange={handleQuantityChange} min={1} />
