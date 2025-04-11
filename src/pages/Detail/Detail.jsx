@@ -22,13 +22,11 @@ const Detail = () => {
     }, [dispatch, id]);
 
     if (status === STATUS.LOADING) {
-        return <div className={styles.mainWrapper}>
-            <Loader />
-        </div>;
+        return <Loader />;
     }
 
     if (status !== STATUS.LOADING && status === STATUS.ERROR) {
-        return <div className={styles.mainWrapper}><h2>{status}</h2></div>;
+        return <h2>{status}</h2>;
     }
 
     const productHandler = () => {
