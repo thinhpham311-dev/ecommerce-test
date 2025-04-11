@@ -10,6 +10,7 @@ import { Loader } from "../../components/Loader/Loader";
 import styles from "./detail.module.scss";
 import { STATUS } from "../../constants/Status";
 import Button from "../../components/Button/Button";
+import { LoaderImage } from "../../components/Loader/Loader";
 
 const Detail = () => {
     const { id } = useParams();
@@ -41,11 +42,10 @@ const Detail = () => {
             <div className="container">
                 <div className={styles.detailWrapper}>
                     <div className={styles.imageWrapper}>
-                        <img
-                            src={product?.product_image}
+                        <LoaderImage src={product?.product_image}
                             alt="product-img"
-                            style={{ maxWidth: "300px", maxHeight: "300px" }}
-                        />
+                            styles={{ maxWidth: "300px", maxHeight: "300px" }} />
+
                     </div>
                     <div className={styles.contentWrapper}>
                         <h3>{product?.product_name}</h3>
