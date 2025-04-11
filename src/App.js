@@ -16,13 +16,13 @@ import 'react-modern-drawer/dist/index.css';
 import { ToastContainer } from "react-toastify";
 import mockServer from './mock'
 import { useAuth } from "./utils/hooks";
-
+import appConfig from "./configs/app.config"
 
 const environment = process.env.NODE_ENV
 
-// if (environment !== 'production' && appConfig.enableMock) {
-//   mockServer({ environment })
-// }
+if (environment !== 'production' && appConfig.enableMock) {
+  mockServer({ environment })
+}
 
 mockServer({ environment })
 
