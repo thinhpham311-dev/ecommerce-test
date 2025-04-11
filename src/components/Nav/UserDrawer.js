@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from "../../utils/hooks"
 import { IoIosLogIn } from "react-icons/io";
-
+import { LoaderImage } from '../Loader/Loader';
 
 function UserDrawer() {
     const navigate = useNavigate()
@@ -59,7 +59,7 @@ function UserDrawer() {
             )}
             {authenticated && <div>
                 <div className={styles.avatarWrapper} onClick={toggleDrawer}>
-                    <img src={avatar ?? userNotFound} className={styles.avatarImage} alt={email} />
+                    <LoaderImage src={avatar ?? userNotFound} className={styles.avatarImage} alt={email} />
                 </div>
                 <Drawer
                     open={isOpen}
@@ -69,7 +69,7 @@ function UserDrawer() {
                     className={styles.userDrawerWrapper}
                 >
                     <div className={styles.avatarWrapperImageInfo}>
-                        <img src={avatar ?? userNotFound} className={styles.avatarImageInfo} alt={email} />
+                        <LoaderImage src={avatar ?? userNotFound} className={styles.avatarImageInfo} alt={email} />
                     </div>
                     <div className={styles.avatarWrapperTextInfo}>
                         <p className="clamp-line-1 "> <strong> {fullName}</strong></p>

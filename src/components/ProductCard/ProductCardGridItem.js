@@ -7,6 +7,7 @@ import styles from "./productCardGridItem.module.scss";
 import Button from "../Button/Button";
 import formatToVND from "../../utils/formatCurrentVn"
 import imageNotFound from "../../assests/imageNotFound.png";
+import { LoaderImage } from "../../components/Loader/Loader"
 
 const ProductCardGridItem = ({ product }) => {
     const navigate = useNavigate()
@@ -37,11 +38,13 @@ const ProductCardGridItem = ({ product }) => {
             style={{ textAlign: "center" }}
             className={styles.productCardGridItem}
         >
-            <div className={styles.productCardImg}>
-                <img
-                    onClick={() => navigate(`/product/${product?.product_id}`)}
+            <div className={styles.productCardImg} onClick={() => navigate(`/product/${product?.product_id}`)}
+            >
+
+                <LoaderImage
                     src={product?.product_image ?? imageNotFound}
                     alt={product?.product_name}
+
                 />
             </div>
             <div className={styles.productCardBody}>

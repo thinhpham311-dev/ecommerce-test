@@ -7,6 +7,7 @@ import Button from "../Button/Button";
 import styles from "./productCardListItem.module.scss";
 import formatToVND from "../../utils/formatCurrentVn";
 import imageNotFound from "../../assests/imageNotFound.png";
+import { LoaderImage } from "../../components/Loader/Loader"
 
 
 const ProductCardListItem = ({ product }) => {
@@ -40,11 +41,11 @@ const ProductCardListItem = ({ product }) => {
     <div
       className={styles.productCardListItem}
     >
-      <div className={styles.productCardImg}>
-        <img
-          onClick={() => navigate(`/product/${product?.product_id}`)}
+      <div className={styles.productCardImg} onClick={() => navigate(`/product/${product?.product_id}`)}>
+        <LoaderImage
           src={product?.product_image ?? imageNotFound}
           alt={product?.product_name}
+
         />
       </div>
       <div className={styles.productCardBody}>
