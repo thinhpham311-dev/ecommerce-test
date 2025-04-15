@@ -29,10 +29,8 @@ export const persistor = persistStore(store)
 
 export const injectReducer = (key, reducer) => {
   if (store.asyncReducers[key]) {
-    console.log("revieced reducer")
     return false
   }
-  console.log("rejected reducer")
 
   store.asyncReducers[key] = reducer
   store.replaceReducer(persistReducer(persistConfig, rootReducer(store.asyncReducers)))

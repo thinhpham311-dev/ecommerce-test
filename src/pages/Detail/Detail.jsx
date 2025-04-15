@@ -11,6 +11,10 @@ import styles from "./detail.module.scss";
 import { STATUS } from "../../constants/Status";
 import Button from "../../components/Button/Button";
 import { LoaderImage } from "../../components/Loader/Loader";
+import reducer from "../../redux/features/Product/index"
+import { injectReducer } from "../../app/store";
+
+injectReducer("product", reducer)
 
 const Detail = () => {
     const { id } = useParams();

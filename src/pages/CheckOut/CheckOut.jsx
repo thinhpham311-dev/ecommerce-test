@@ -1,13 +1,18 @@
 
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { useCheckOut } from "../../utils/hooks"
-import { Link } from "react-router-dom";
+import { useAuth, useCheckOut } from "../../utils/hooks"
+import { Link, Navigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import styles from "./checkout.module.scss"
 import { toast } from "react-toastify";
 import Form from "../../components/Form/Form";
 import DataTable from "../../components/DataTable/DataTable";
 import formatToVND from '../../utils/formatCurrentVn';
+import { REDIRECT_URL_KEY } from "../../constants/App"
+import appConfig from "../../configs/app.config";
+
+const { unAuthenticatedEntryPath } = appConfig
 
 const formValidator = (values) => {
     const errors = [];
@@ -32,6 +37,9 @@ const formValidator = (values) => {
     return errors;
 };
 const Checkout = () => {
+    const { authenticated } = useAuth()
+    const location = useLocation()
+
     const { handleCheckOut, loading } = useCheckOut();
 
     const { cart } = useSelector((state) => state.cart.state);
@@ -105,6 +113,9 @@ const Checkout = () => {
 
     ];
 
+    if (!authenticated) {
+        return <Navigate to={`${unAuthenticatedEntryPath}?${REDIRECT_URL_KEY}=${location.pathname}`} replace />;
+    }
 
     return (
         <div className={styles.mainWrapper}>

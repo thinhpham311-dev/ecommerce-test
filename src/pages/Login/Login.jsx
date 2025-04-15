@@ -64,7 +64,6 @@ const Login = () => {
         },
     ];
 
-
     return (
         <div className={styles.mainWrapper}>
             <div className="container">

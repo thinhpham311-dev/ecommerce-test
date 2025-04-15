@@ -29,9 +29,8 @@ const ProductList = () => {
 
   return (
 
-    <div className={styles.productListWrapper}>
+    <>
       <ActionBar />
-
       {
         (view === 'grid' && products.length > 0 && !loading) && (
           <div className={styles.productsGridItem}>
@@ -55,8 +54,7 @@ const ProductList = () => {
           </div>
         )
       }
-
-    </div>
+    </>
   );
 };
 

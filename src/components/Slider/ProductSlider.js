@@ -7,7 +7,10 @@ import ProductCardGridItem from "../ProductCard/ProductCardGridItem";
 
 import { STATUS } from "../../constants/Status";
 import { fetchProducts } from "../../redux/features/Product/dataSlice";
+import { injectReducer } from "../../app/store";
+import reducer from "../../redux/features/Product";
 
+injectReducer("product", reducer)
 
 const ProductSlider = () => {
 
