@@ -11,6 +11,7 @@ import DataTable from "../../components/DataTable/DataTable";
 import formatToVND from '../../utils/formatCurrentVn';
 import { REDIRECT_URL_KEY } from "../../constants/App"
 import appConfig from "../../configs/app.config";
+import { selectCartStateItems } from "../../redux/features/Cart/selectors"
 
 const { unAuthenticatedEntryPath } = appConfig
 
@@ -42,11 +43,11 @@ const Checkout = () => {
 
     const { handleCheckOut, loading } = useCheckOut();
 
-    const { cart } = useSelector((state) => state.cart.state);
+    const { items } = useSelector(selectCartStateItems);
 
     const totalPrice = useMemo(() => {
-        return cart.reduce((acc, item) => acc + item.product_price * item.quantity, 0);
-    }, [cart])
+        return items.reduce((acc, item) => acc + item.product_price * item.quantity, 0);
+    }, [items])
 
     async function handleValidationSuccessOnSubmit(values) {
         const result = await handleCheckOut(values);
@@ -131,20 +132,19 @@ const Checkout = () => {
                             loadingText="Đang thanh toán..."
                             title="Thanh Toán"
                             isSubmitting={loading}
-                            isDisabled={!cart.length > 0}
+                            isDisabled={!items.length > 0}
                         />
                     </div>
                     <div>
                         <div className={styles.actionBarWrapper}>
                             <div className={styles.actionBarContext}>
-                                <h3>Giỏ hàng <strong>({cart.length})</strong></h3>
+                                <h3>Giỏ hàng <strong>({items.length})</strong></h3>
                                 <Link to="/cart">Cập nhật</Link>
                             </div>
                         </div>
 
-                        <DataTable data={cart} columns={columns} />
-
-                        <h3>Tổng: {formatToVND(totalPrice)}</h3>
+                        <DataTable data={items} columns={columns} />
+                        {totalPrice > 0 && <h3>Tổng: {formatToVND(totalPrice)}</h3>}
                     </div>
                 </div>
             </div>

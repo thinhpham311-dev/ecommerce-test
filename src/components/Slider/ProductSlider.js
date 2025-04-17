@@ -9,6 +9,7 @@ import { STATUS } from "../../constants/Status";
 import { fetchProducts } from "../../redux/features/Product/dataSlice";
 import { injectReducer } from "../../app/store";
 import reducer from "../../redux/features/Product";
+import { selectProductDataItems } from "../../redux/features/Product/selectors"
 
 injectReducer("product", reducer)
 
@@ -17,7 +18,7 @@ const ProductSlider = () => {
 
   const dispatch = useDispatch()
 
-  const { products, status } = useSelector((state) => state.product.data);
+  const { products, status } = useSelector(selectProductDataItems);
 
   useEffect(() => {
     dispatch(fetchProducts({ search: "" }));

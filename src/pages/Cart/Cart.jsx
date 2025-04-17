@@ -8,15 +8,16 @@ import Button from "../../components/Button/Button";
 import Numberic from "../../components/Input/Numberic"
 import formatToVND from "../../utils/formatCurrentVn"
 import DataTable from "../../components/DataTable/DataTable"
+import { selectCartStateItems } from "../../redux/features/Cart/selectors"
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.cart.state);
+  const { items } = useSelector(selectCartStateItems);
   let navigate = useNavigate();
 
-  const totalPrice = useMemo(() => cart?.reduce(
+  const totalPrice = useMemo(() => items?.reduce(
     (a, c) => a + c.quantity * c.product_price,
-    0), [cart])
+    0), [items])
 
   const removeAllProduct = () => {
     dispatch(removeAll());
@@ -79,16 +80,16 @@ const Cart = () => {
       <div className="container">
         <div className={styles.actionBarWrapper}>
           <div className={styles.actionBarContext}>
-            <h3>Giỏ hàng<strong> ({cart?.length})</strong></h3>
+            <h3>Giỏ hàng<strong> ({items?.length})</strong></h3>
           </div>
         </div>
-        <DataTable data={cart} columns={columns} />
+        <DataTable data={items} columns={columns} />
       </div>
       <div className={styles.footerCart}>
         <div className="container">
           <div className={styles.footerCartContext}>
             <div>
-              <Button color="danger" disabled={!cart.length > 0} size="small" className={styles.btnRemoveAll} onClick={removeAllProduct}>
+              <Button color="danger" disabled={!items.length > 0} size="small" className={styles.btnRemoveAll} onClick={removeAllProduct}>
                 Xóa tất cả
               </Button>
             </div>
@@ -96,7 +97,7 @@ const Cart = () => {
               <h5>
                 Tổng: <b>{formatToVND(totalPrice)}</b>
               </h5>
-              {cart.length > 0 && <Button color="success" size="small" className={styles.btnCheckOut} onClick={() => navigate('/checkout')}>Thanh toán</Button>
+              {items.length > 0 && <Button color="success" size="small" className={styles.btnCheckOut} onClick={() => navigate('/checkout')}>Thanh toán</Button>
               }
             </div>
           </div>

@@ -7,13 +7,14 @@ import ProductCardGridItem from "../ProductCard/ProductCardGridItem";
 import styles from "./productlist.module.scss";
 import { Loader } from "../Loader/Loader";
 import ActionBar from "../ActionBar/ActionBar";
+import { selectProductDataItems, selectProductStateItems } from "../../redux/features/Product/selectors"
 
 const ProductList = () => {
 
   const dispatch = useDispatch();
 
-  const { search, view } = useSelector((state) => state.product.state)
-  const { products, status, loading } = useSelector((state) => state.product.data);
+  const { search, view } = useSelector(selectProductStateItems)
+  const { products, status, loading } = useSelector(selectProductDataItems);
 
   useEffect(() => {
     dispatch(fetchProducts({ search }));

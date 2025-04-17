@@ -7,19 +7,20 @@ import styles from "./cartdrawer.module.scss"
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import CartCardListItem from "../ProductCard/CartCardListItem"
 import { useNavigate } from 'react-router-dom'
+import { selectCartStateItems } from "../../redux/features/Cart/selectors"
 
 const CartDrawer = () => {
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = React.useState(false)
-    const { cart } = useSelector((state) => state.cart.state);
+    const { items } = useSelector(selectCartStateItems);
 
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
     }
 
-    const totalPrice = useMemo(() => cart?.reduce(
+    const totalPrice = useMemo(() => items?.reduce(
         (a, c) => a + c.quantity * c.product_price,
-        0), [cart])
+        0), [items])
 
 
 
@@ -28,7 +29,7 @@ const CartDrawer = () => {
             <div className={styles.cartIcon} onClick={toggleDrawer}>
                 <AiOutlineShoppingCart size={23} />
                 <div className={styles.cartLength}>
-                    <span>{cart?.length}</span>
+                    <span>{items?.length}</span>
                 </div>
             </div>
             <Drawer
@@ -47,7 +48,7 @@ const CartDrawer = () => {
 
                 <div className={styles.productsLisItem}>
                     {
-                        cart.map(item => (
+                        items.map(item => (
                             <CartCardListItem key={item.product_id} product={item} />
                         ))
                     }
@@ -57,7 +58,7 @@ const CartDrawer = () => {
                         toggleDrawer()
                         navigate("/cart")
                     }}>  Xem chi tiết</Button>
-                    {cart.length > 0 &&
+                    {items.length > 0 &&
                         <Button color="success" size="small" onClick={() => {
                             toggleDrawer()
                             navigate("/checkout")
