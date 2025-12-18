@@ -12,7 +12,8 @@ import { selectCartStateItems } from "../../redux/features/Cart/selectors"
 const CartDrawer = () => {
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = React.useState(false)
-    const { items } = useSelector(selectCartStateItems);
+    const { cart } = useSelector(selectCartStateItems);
+    const { items = [] } = cart
 
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
@@ -21,7 +22,6 @@ const CartDrawer = () => {
     const totalPrice = useMemo(() => items?.reduce(
         (a, c) => a + c.quantity * c.product_price,
         0), [items])
-
 
 
     return (
