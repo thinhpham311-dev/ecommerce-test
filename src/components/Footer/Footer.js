@@ -5,7 +5,8 @@ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <div className={styles.footer}>
-      Copyright © {year} - Bài Test Commerce.
+      Copyright © {year} - React - Shopping Cart
+      .
     </div>
   );
 };

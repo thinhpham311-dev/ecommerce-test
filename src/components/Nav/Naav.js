@@ -19,7 +19,7 @@ const Naav = () => {
         <div className={styles.navBarContext}>
           <div className={styles.navBarBrand}>
             <Link to="/" className={styles.navLink}>
-              Bài test Commerce
+              React - Shopping Cart
             </Link>
           </div>
           <button className={styles.toggleBtn} type="button" onClick={() => setOpen(!open)}>
