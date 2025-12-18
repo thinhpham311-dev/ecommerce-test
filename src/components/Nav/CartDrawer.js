@@ -13,7 +13,7 @@ const CartDrawer = () => {
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = React.useState(false)
     const { cart } = useSelector(selectCartStateItems);
-    const { items = [] } = cart
+    const items = cart?.items || [];
 
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
